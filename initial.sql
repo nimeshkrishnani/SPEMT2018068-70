@@ -14,6 +14,7 @@
 -- *INSERTING COLUMN*
 -- ALTER TABLE "TABLE NAME" 
 -- ADD COLUMN "COLUMN NAME" "COLUMN DEFINITION" AFTER "EXSITING COLUMN NAME"
+CREATE DATABASE IF NO EXISTS event_information;
 USE event_information;
 
 DROP TABLE IF EXISTS contactInfo;
@@ -34,27 +35,27 @@ CREATE TABLE subEventInfo	  (eventId					INT(20)
                               ,subEventLong				DECIMAL(10, 8)
                               ,subEventLat				DECIMAL(10, 8)
                               ,subEventLocation			VARCHAR(40)
-                              ,PRIMARY KEY (eventId)
+                              -- ,PRIMARY KEY (eventId)
 							  ,FOREIGN KEY (eventId) 	REFERENCES generalEventInfo(eventId)
                               );
 CREATE TABLE contactInfo 	  (eventId 					INT(20)
 							  ,generalOrganizers 		VARCHAR(40)
- --                              ,FOREIGN KEY (eventId) 	REFERENCES generalEventInfo(eventId)
-                              ,PRIMARY KEY (eventId)
+                              ,FOREIGN KEY (eventId) 	REFERENCES generalEventInfo(eventId)
+                              -- ,PRIMARY KEY (eventId)
                               );
 
 ALTER TABLE generalEventInfo AUTO_INCREMENT=1001;
 
-INSERT INTO generalEventInfo (eventName
-							 )
-VALUES 						 ("TAKE HOME"
-							 );
-INSERT INTO contactInfo 	 (eventId
-							 ,generalOrganizers
-							 )
-VALUES 						 (1001
-							 ,"THE REPO"
-							 );
+-- INSERT INTO generalEventInfo (eventName
+-- 							 )
+-- VALUES 						 ("TAKE HOME"
+-- 							 );
+-- INSERT INTO contactInfo 	 (eventId
+-- 							 ,generalOrganizers
+-- 							 )
+-- VALUES 						 (1001
+-- 							 ,"THE REPO"
+-- 							 );
 
 -- UPDATE generalEventInfo
 -- SET contactTeam="THE REPO"
@@ -64,4 +65,3 @@ VALUES 						 (1001
 -- WHERE generalOrganizers="THE REPO";
 SELECT * FROM generalEventInfo;
 SELECT * FROM contactInfo;
-
