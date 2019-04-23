@@ -63,5 +63,5 @@ ALTER TABLE generalEventInfo AUTO_INCREMENT=1001;
 -- UPDATE contactInfo
 -- SET contactPerson="MR. REPO"
 -- WHERE generalOrganizers="THE REPO";
-SELECT * FROM generalEventInfo;
-SELECT * FROM contactInfo;
+-- SELECT * FROM generalEventInfo;
+-- SELECT * FROM contactInfo;
