@@ -14,7 +14,7 @@
 -- *INSERTING COLUMN*
 -- ALTER TABLE "TABLE NAME" 
 -- ADD COLUMN "COLUMN NAME" "COLUMN DEFINITION" AFTER "EXSITING COLUMN NAME"
-CREATE DATABASE IF NO EXISTS event_information;
+CREATE DATABASE IF NOT EXISTS event_information;
 USE event_information;
 
 DROP TABLE IF EXISTS contactInfo;
@@ -32,8 +32,8 @@ CREATE TABLE subEventInfo	  (eventId					INT(20)
                               ,contactNum1 				VARCHAR(40)
                               ,contactName2 			VARCHAR(40)
                               ,contactNum2 				VARCHAR(40)
-                              ,subEventLong				DECIMAL(10, 8)
-                              ,subEventLat				DECIMAL(10, 8)
+                              ,subEventLong				VARCHAR(18)
+                              ,subEventLat				VARCHAR(18)
                               ,subEventLocation			VARCHAR(40)
                               -- ,PRIMARY KEY (eventId)
 							  ,FOREIGN KEY (eventId) 	REFERENCES generalEventInfo(eventId)
@@ -46,10 +46,10 @@ CREATE TABLE contactInfo 	  (eventId 					INT(20)
 
 ALTER TABLE generalEventInfo AUTO_INCREMENT=1001;
 
--- INSERT INTO generalEventInfo (eventName
--- 							 )
--- VALUES 						 ("TAKE HOME"
--- 							 );
+INSERT INTO generalEventInfo (eventName
+							 )
+VALUES 						 ("TAKE HOME"
+							 );
 -- INSERT INTO contactInfo 	 (eventId
 -- 							 ,generalOrganizers
 -- 							 )
