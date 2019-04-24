@@ -9,10 +9,10 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 var config = require('./config/secret');
 var connection = mysql.createConnection({
-  host     : 'localhost',
+  host     : 'db',
   user     : 'root',
-  password : '',
-  database : 'EventInformation'
+  password : 'NIme&1212',
+  database : 'event_information'
 });
 connection.connect(); 
 app.use(cors());
