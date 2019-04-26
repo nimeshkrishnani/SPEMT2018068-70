@@ -20,7 +20,7 @@ $(document).ready(function(){
             }),
       dataType: "json",
       success: function(data){
-         if(data.msg=="successful"){
+         if(data.msg=="successfull"){
           var content2="";
           content2 += '<section class="content">';
           content2 +='<div class="row">';
@@ -85,7 +85,7 @@ $(document).ready(function(){
             }),
       dataType: "json",
       success: function(data){
-         if(data.msg=="successful"){
+         if(data.msg=="successfull"){
           var content2="";
           content2 += '<section class="content">';
           content2 +='<div class="row">';
@@ -157,7 +157,7 @@ $(document).ready(function(){
             }),
       dataType: "json",
       success: function(data){
-         if(data.msg=="successful"){
+         if(data.msg=="successfull"){
           var content2="";
           content2 += '<section class="content">';
           content2 +='<div class="row">';
@@ -248,7 +248,7 @@ function setdata(){    // This function checks the validity of the credentials
             }),
       dataType: "json",
       success: function(data){
-         if(data.msg=="successful"){
+         if(data.msg=="successfull"){
           window.location="index_my.html";
           alert("Ballw");
           }
@@ -336,7 +336,7 @@ function myFunction(id,name){
       dataType: "json",
       contentType: "application/json",
       success: function(data){
-         if(data.msg=="successful"){
+         if(data.msg=="successfull"){
           var content2="";
           content2 += '<section class="content">';
           content2 +='<div class="row">';
@@ -400,7 +400,7 @@ $('#events').click(function(e){
       url: 'http://localhost:4000/eventFetch',
       contentType: "application/json",
       success: function(data){
-         if(data.msg=="successful"){
+         if(data.msg=="successfull"){
           var content2="";
           content2 += '<section class="content">';
           content2 +='<div class="row">';
