@@ -24,7 +24,7 @@ app.post('/eventFetch', function (req, res) {
 	connection.query('SELECT * FROM `generalEventInfo`', function (error, results, fields) {
 	  if (error) throw error;
 	  
-    res.status(200).send({ msg: 'successfull',  data:results});
+    res.status(200).send({ msg: 'successful',  data:results});
 	  
 	}); 
 })
@@ -38,13 +38,13 @@ app.post('/subEventFetch', function (req, res) {
 	  {
 	  	connection.query('SELECT * FROM `generalEventInfo` WHERE `eventId`="'+req.body.id+'"', function (error2, results2, fields2) {
 	  	if (error2) throw error2;
-	  	res.status(200).send({ msg: 'successfull',  data:results,name:results2[0]['eventName']});
+	  	res.status(200).send({ msg: 'successful',  data:results,name:results2[0]['eventName']});
 	});
 	    
 	  }
 	  else if(results.length==0)
 	  {
-	  	res.status(200).send({ msg: 'unsuccessfull',  data:results});
+	  	res.status(200).send({ msg: 'unsuccessful',  data:results});
 	  }
 	  
 	}); 
@@ -149,7 +149,7 @@ app.post('/createusers', function (req, res) {
 		
 		  if(results.affectedRows)
 		  {
-		  	res.status(200).send({ auth: true, msg:"Operation successfull, redirecting to list"});
+		  	res.status(200).send({ auth: true, msg:"Operation successful, redirecting to list"});
 		  }
 		  else
 		  {
@@ -186,7 +186,7 @@ app.post('/updateusers', function (req, res) {
 		
 		  if(results.affectedRows)
 		  {
-		  	res.status(200).send({ auth: true, msg:"Operation successfull, redirecting to list"});
+		  	res.status(200).send({ auth: true, msg:"Operation successful, redirecting to list"});
 		  }
 		  else
 		  {
@@ -223,7 +223,7 @@ app.get('/getUser/:id_ls_mem', function (req, res) {
 		
 		  if(results.length)
 		  {
-		  	res.status(200).send({ auth: true, msg:"Operation successfull, redirecting to list",data:results[0]});
+		  	res.status(200).send({ auth: true, msg:"Operation successful, redirecting to list",data:results[0]});
 		  }
 		  else
 		  {
@@ -324,7 +324,7 @@ app.post('/createikigai', function (req, res) {
 		  		if (error) throw error;
 		  		if(results.affectedRows)
 		  		{
-		  			res.status(200).send({ auth: true, msg:"Operation successfull, redirecting to list",id:setid});
+		  			res.status(200).send({ auth: true, msg:"Operation successful, redirecting to list",id:setid});
 		  		}
 		  		else
 		  		{
@@ -359,7 +359,7 @@ app.post('/createikigai', function (req, res) {
 		  		if (error) throw error;
 		  		if(results.affectedRows)
 		  		{
-		  			res.status(200).send({ auth: true, msg:"Operation successfull, redirecting to list",id:setid});
+		  			res.status(200).send({ auth: true, msg:"Operation successful, redirecting to list",id:setid});
 		  		}
 		  		else
 		  		{
