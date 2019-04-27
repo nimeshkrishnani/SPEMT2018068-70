@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 4000
+const port = process.env.PORT || 3000
 var bodyParser = require("body-parser");
 var cors = require('cors');
 var mysql      = require('mysql');
@@ -9,7 +9,7 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 var config = require('./config/secret');
 var connection = mysql.createConnection({
-  host     : 'db',
+  host     : '34.85.112.34',
   user     : 'root',
   password : 'NIme&1212',
   database : 'event_information'
@@ -17,7 +17,15 @@ var connection = mysql.createConnection({
 connection.connect(); 
 app.use(cors());
 app.use(bodyParser.json());
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => {
+	//res.send('Hello World!')
+	connection.query('SELECT * FROM `generalEventInfo`', function (error, results, fields) {
+	  if (error) throw error;
+	  
+    res.status(200).send({ msg: 'successfull',  data:results});
+	  
+	});
+})
 
 app.post('/eventFetch', function (req, res) {
    	
@@ -28,7 +36,6 @@ app.post('/eventFetch', function (req, res) {
 	  
 	}); 
 })
-
 
 app.post('/subEventFetch', function (req, res) {
    	
