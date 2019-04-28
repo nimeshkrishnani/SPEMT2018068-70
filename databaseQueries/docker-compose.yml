@@ -1,0 +1,15 @@
+version: '2.1'
+volumes:
+  mysql-log:
+    driver: local
+  mysql-conf:
+    driver: local
+services:
+  db:
+    build: ./
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/log/mysql
+    restart: unless-stopped
+    command: mysqld --general-log=1 --general-log-file=/var/log/mysql/general-log.log
