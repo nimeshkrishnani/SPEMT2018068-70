@@ -12,4 +12,4 @@ services:
     volumes:
       - ./data:/var/log/mysql
     restart: unless-stopped
-    command: mysqld --general-log=1 --general-log-file=/var/log/mysql/general-log.log
+    command: mysqld --general-log = 1 --general-log-file = /var/log/mysql/general-log.log
