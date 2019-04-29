@@ -27,7 +27,7 @@ CREATE TABLE generalEventInfo (eventId 					INT(20) 		AUTO_INCREMENT
                               );
 CREATE TABLE subEventInfo	  (eventId					INT(20)
 							  ,subEventName 			VARCHAR(40)
-                              ,subEventInfo 			VARCHAR(500)
+                              ,subEventInfo 			VARCHAR(40)
 							  ,contactName1 			VARCHAR(40)
                               ,contactNum1 				VARCHAR(40)
                               ,contactName2 			VARCHAR(40)
