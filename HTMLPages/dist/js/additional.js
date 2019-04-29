@@ -373,9 +373,37 @@ content2 +='</div>';
 content2 +='</div>';
 content2 +='</div>';
 content2 +='</form>';
-content2 +='<div id="workerData">';
+content2 +='<div id="returnData">';
 $("#parent").html(content2);
+  $.ajax({
+      type: "POST",
+      url: 'https://testspemysql.herokuapp.com/insertSubEvent',
+      data: JSON.stringify({
+                eventName:$("#eventName").val(),
+                subEventName:$("#subEventName").val(),
+                subEventInfo:$("#subEventInfo").val(),
+                contactName1:$("#contactName1").val(),
+                contactNum1:$("#contactNum1").val(),
+                contactName2:$("#contactName2").val(),
+                contactNum2:$("#contactNum2").val(),
+                subEventLocation:$("#subEventLocation").val(),
 
+                
+      }),
+      dataType: "json",
+      contentType: "application/json",
+      success: function(data){
+        $('#returnData').html("");
+        if(data.msg=='successfull'){
+          content = '<div class="alert alert-info" style="margin-left:5%;margin-right:5%">SubEvent Inserted with that name</div>';
+             $('#returnData').html(content);
+        }
+        else{
+          content = '<div class="alert alert-info" style="margin-left:5%;margin-right:5%"> No Event Exists with that name</div>';
+             $('#returnData').html(content);
+        }
+    }
+  })
 
 
     });
@@ -419,7 +447,7 @@ function myFunction(id,name){
       type: "POST",
       url: 'https://testspemysql.herokuapp.com/subEventFetch',
       data: JSON.stringify({
-                name:name
+                id:id
                 
 	    }),
       dataType: "json",
@@ -512,7 +540,7 @@ $('#events').click(function(e){
         $.each(data.data, function(index,value){
           
             content2 += '<tr>';
-            content2 +=   value.eventId+'<td onclick = "myFunction('+value.eventId+')"> </td>';
+            content2 += '<td onclick = "myFunction('+value.eventId+')">' + value.eventName + '</td>';
             content2 += '<tr>';
           })
           
