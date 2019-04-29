@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
   host     : '34.73.175.209',
   user     : 'root',
   password : 'NIme&1212',
-  database : 'EventInformation'
+  database : 'event_information'
 });
 connection.connect(); 
 app.use(cors());
