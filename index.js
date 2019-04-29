@@ -9,10 +9,10 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 var config = require('./config/secret');
 var connection = mysql.createConnection({
-  host     : '34.73.175.209',
+  host     : 'localhost',
   user     : 'root',
-  password : 'NIme&1212',
-  database : 'event_information'
+  password : '',
+  database : 'EventInformation'
 });
 connection.connect(); 
 app.use(cors());
@@ -63,7 +63,7 @@ app.post('/insertSubEvent', function (req, res) {
 	  if (error) throw error;
 	  if(results.length==1)
 	  {
-	  	connection.query('INSERT INTO `subEventInfo`(`subEventName`, `subEventInfo`, `contactName1`, `contactNum1`, `contactName2`, `contactNum2`,`subEventLocation`,`eventId`) VALUES ("'+req.body.eventName+'","'+req.body.subEventInfo+'","'+req.body.contactName1+'","'+req.body.contactNum1+'","'+req.body.contactName2+'","'+req.body.contactNum2+'","'+req.body.subEventLocation+'","'+results[0]['eventId']+'")"', function (error2, results2, fields2) {
+	  	connection.query('INSERT INTO `subEventInfo`(`subEventName`, `subEventInfo`, `contactName1`, `contactNum1`, `contactName2`, `contactNum2`,`subEventLocation`,`eventId`) VALUES ("'+req.body.eventName+'","'+req.body.subEventInfo+'","'+req.body.contactName1+'","'+req.body.contactNum1+'","'+req.body.contactName2+'","'+req.body.contactNum2+'","'+req.body.subEventLocation+'","'+results[0]['eventId']+'")', function (error2, results2, fields2) {
 	  	if (error2) throw error2;
 	  	res.status(200).send({ msg: 'successfull'});
 	});

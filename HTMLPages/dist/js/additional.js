@@ -1,5 +1,50 @@
 $(document).ready(function(){
 
+  $(document).on('click',"#submitSubEventInfo",function(e){
+    e.preventDefault();
+    //alert("oye");
+    /*var id = $("#workerid").val();
+    if(id.length==0){
+      alert("Enter Worker Id");
+      return;
+    }*/
+    alert("aao");
+    alert($("#eventName").val());
+    $("#returnData").html("");
+    var content = "";
+    $.ajax({
+      type: "POST",
+      url: 'http://localhost:3000/insertSubEvent',
+      contentType: "application/json",
+      data: JSON.stringify({
+                eventName:$("#eventName").val(),
+                subEventName:$("#subEventName").val(),
+                subEventInfo:$("#subEventInfo").val(),
+                contactName1:$("#contactName1").val(),
+                contactNum1:$("#contactNum1").val(),
+                contactName2:$("#contactName2").val(),
+                contactNum2:$("#contactNum2").val(),
+                subEventLocation:$("#subEventLocation").val(),
+
+                
+      }),
+      dataType: "json",
+      
+      success: function(data){
+        $('#returnData').html("");
+        if(data.msg=='successfull'){
+          content = '<div class="alert alert-info" style="margin-left:5%;margin-right:5%">SubEvent Inserted with that name</div>';
+             $('#returnData').html(content);
+        }
+        else{
+          content = '<div class="alert alert-info" style="margin-left:5%;margin-right:5%"> No Event Exists with that name</div>';
+             $('#returnData').html(content);
+        }
+    }
+  })
+    
+  })
+
 
   $(document).on('click',"#submitWorkerId",function(e){
     e.preventDefault();
@@ -13,7 +58,7 @@ $(document).ready(function(){
     var content = "";
     $.ajax({
       type: "POST",
-      url: 'https://testspemysql.herokuapp.com/workerDetails',
+      url: 'http://localhost:3000/workerDetails',
       contentType: "application/json",
       data: JSON.stringify({
                 id:id,
@@ -78,7 +123,7 @@ $(document).ready(function(){
     var content = "";
     $.ajax({
       type: "POST",
-      url: 'https://testspemysql.herokuapp.com/roomDetails',
+      url: 'http://localhost:3000/roomDetails',
       contentType: "application/json",
       data: JSON.stringify({
                 id:id,
@@ -150,7 +195,7 @@ $(document).ready(function(){
     var content = "";
     $.ajax({
       type: "POST",
-      url: 'https://testspemysql.herokuapp.com/dateFetch',
+      url: 'http://localhost:3000/dateFetch',
       contentType: "application/json",
       data: JSON.stringify({
                 id:id,
@@ -240,7 +285,7 @@ function setdata(){    // This function checks the validity of the credentials
     var password =$("#password").val();
     $.ajax({
       type: "POST",
-      url: 'https://testspemysql.herokuapp.com/adminLogin',
+      url: 'http://localhost:3000/adminLogin',
       contentType: "application/json",
       data: JSON.stringify({
                 email:email,
@@ -375,9 +420,10 @@ content2 +='</div>';
 content2 +='</form>';
 content2 +='<div id="returnData">';
 $("#parent").html(content2);
-  $.ajax({
+
+  /*$.ajax({
       type: "POST",
-      url: 'https://testspemysql.herokuapp.com/insertSubEvent',
+      url: 'http://localhost:3000/insertSubEvent',
       data: JSON.stringify({
                 eventName:$("#eventName").val(),
                 subEventName:$("#subEventName").val(),
@@ -403,7 +449,7 @@ $("#parent").html(content2);
              $('#returnData').html(content);
         }
     }
-  })
+  })*/
 
 
     });
@@ -445,7 +491,7 @@ function myFunction(id,name){
 	var content ='';
 	$.ajax({
       type: "POST",
-      url: 'https://testspemysql.herokuapp.com/subEventFetch',
+      url: 'http://localhost:3000/subEventFetch',
       data: JSON.stringify({
                 id:id
                 
@@ -514,7 +560,7 @@ $('#events').click(function(e){
 	var content ='';
 	$.ajax({
       type: "POST",
-      url: 'https://testspemysql.herokuapp.com/eventFetch',
+      url: 'http://localhost:3000/eventFetch',
       contentType: "application/json",
       success: function(data){
          if(data.msg=="successfull"){
