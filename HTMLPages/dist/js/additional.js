@@ -14,7 +14,7 @@ $(document).ready(function(){
     var content = "";
     $.ajax({
       type: "POST",
-      url: 'http://localhost:3000/insertSubEvent',
+      url: 'https://testspemysql.herokuapp.com/insertSubEvent',
       contentType: "application/json",
       data: JSON.stringify({
                 eventName:$("#eventName").val(),
@@ -58,7 +58,7 @@ $(document).ready(function(){
     var content = "";
     $.ajax({
       type: "POST",
-      url: 'http://localhost:3000/workerDetails',
+      url: 'https://testspemysql.herokuapp.com/workerDetails',
       contentType: "application/json",
       data: JSON.stringify({
                 id:id,
@@ -123,7 +123,7 @@ $(document).ready(function(){
     var content = "";
     $.ajax({
       type: "POST",
-      url: 'http://localhost:3000/roomDetails',
+      url: 'https://testspemysql.herokuapp.com/roomDetails',
       contentType: "application/json",
       data: JSON.stringify({
                 id:id,
@@ -195,7 +195,7 @@ $(document).ready(function(){
     var content = "";
     $.ajax({
       type: "POST",
-      url: 'http://localhost:3000/dateFetch',
+      url: 'https://testspemysql.herokuapp.com/dateFetch',
       contentType: "application/json",
       data: JSON.stringify({
                 id:id,
@@ -285,7 +285,7 @@ function setdata(){    // This function checks the validity of the credentials
     var password =$("#password").val();
     $.ajax({
       type: "POST",
-      url: 'http://localhost:3000/adminLogin',
+      url: 'https://testspemysql.herokuapp.com/adminLogin',
       contentType: "application/json",
       data: JSON.stringify({
                 email:email,
@@ -423,7 +423,7 @@ $("#parent").html(content2);
 
   /*$.ajax({
       type: "POST",
-      url: 'http://localhost:3000/insertSubEvent',
+      url: 'https://testspemysql.herokuapp.com/insertSubEvent',
       data: JSON.stringify({
                 eventName:$("#eventName").val(),
                 subEventName:$("#subEventName").val(),
@@ -491,7 +491,7 @@ function myFunction(id,name){
 	var content ='';
 	$.ajax({
       type: "POST",
-      url: 'http://localhost:3000/subEventFetch',
+      url: 'https://testspemysql.herokuapp.com/subEventFetch',
       data: JSON.stringify({
                 id:id
                 
@@ -560,7 +560,7 @@ $('#events').click(function(e){
 	var content ='';
 	$.ajax({
       type: "POST",
-      url: 'http://localhost:3000/eventFetch',
+      url: 'https://testspemysql.herokuapp.com/eventFetch',
       contentType: "application/json",
       success: function(data){
          if(data.msg=="successfull"){

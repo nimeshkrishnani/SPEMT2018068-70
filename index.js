@@ -9,9 +9,9 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 var config = require('./config/secret');
 var connection = mysql.createConnection({
-  host     : 'localhost',
+  host     : '34.73.175.209',
   user     : 'root',
-  password : '',
+  password : 'NIme&1212',
   database : 'EventInformation'
 });
 connection.connect(); 
