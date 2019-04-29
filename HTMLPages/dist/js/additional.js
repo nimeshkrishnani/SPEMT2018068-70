@@ -316,6 +316,69 @@ $("#parent").html(content2);
 
 
     });
+$('#enter_sub_events').click(function(e) {   
+      e.preventDefault();
+     // alert('Entered Worker');
+      $("#parent").html("");
+
+var content2='';
+content2 +='<form class="form-horizontal">';
+content2 +='<div class="box-body">';
+content2 +='<div class="form-group" style="margin-left:-1%">';
+content2 +='<br/>'
+content2 +='<label for="event_name" class="col-sm-2 control-label">Event Name</label>';
+content2 +='<div class="col-sm-2">';
+content2 +='<input type="text" class="form-control" id="eventName" placeholder="Default Event">';
+content2 +='</div>';
+
+content2 +='<label for="sub_event_name" class="col-sm-2 control-label">Sub Event Name</label>';
+content2 +='<div class="col-sm-2">';
+content2 +='<input type="text" class="form-control" id="subEventName" placeholder="Sub Event">';
+content2 +='</div>';
+
+content2 +='<label for="sub_event_info" class="col-sm-2 control-label">Sub Event Info</label>';
+content2 +='<div class="col-sm-2">';
+content2 +='<input type="text" class="form-control" id="subEventInfo" placeholder="Sub Event Info">';
+content2 +='</div>';
+
+content2 +='<label for="contact_name_one" class="col-sm-2 control-label">First Contact Person Name</label>';
+content2 +='<div class="col-sm-2">';
+content2 +='<input type="text" class="form-control" id="contactName1" placeholder="Contact Name 1">';
+content2 +='</div>';
+
+content2 +='<label for="contact_num_one" class="col-sm-2 control-label">First Contact Person Number</label>';
+content2 +='<div class="col-sm-2">';
+content2 +='<input type="text" class="form-control" id="contactnum1" placeholder="Contact Number 1">';
+content2 +='</div>';
+
+
+content2 +='<label for="contact_name_two" class="col-sm-2 control-label">Second Contact Person Name</label>';
+content2 +='<div class="col-sm-2">';
+content2 +='<input type="text" class="form-control" id="contactName2" placeholder="Contact Name 2">';
+content2 +='</div>';
+
+content2 +='<label for="contact_num_two" class="col-sm-2 control-label">Second Contact Person Number</label>';
+content2 +='<div class="col-sm-2">';
+content2 +='<input type="text" class="form-control" id="contactnum2" placeholder="Contact Number 2">';
+content2 +='</div>';
+
+content2 +='<label for="sub_event_location" class="col-sm-2 control-label">Sub Event Location</label>';
+content2 +='<div class="col-sm-2">';
+content2 +='<input type="text" class="form-control" id="subEventLocation" placeholder="Sub Event Location">';
+content2 +='</div>';
+
+content2 +='<div class="col-sm-2">';
+content2 +='<button type="submit" id = "submitSubEventInfo" class="btn btn-info pull-left">Submit</button>';
+content2 +='</div>';
+content2 +='</div>';
+content2 +='</div>';
+content2 +='</form>';
+content2 +='<div id="workerData">';
+$("#parent").html(content2);
+
+
+
+    });
 
 $('#room').click(function(e) {   
       e.preventDefault();
@@ -356,7 +419,7 @@ function myFunction(id,name){
       type: "POST",
       url: 'https://testspemysql.herokuapp.com/subEventFetch',
       data: JSON.stringify({
-                id:id
+                name:name
                 
 	    }),
       dataType: "json",
@@ -449,7 +512,7 @@ $('#events').click(function(e){
         $.each(data.data, function(index,value){
           
             content2 += '<tr>';
-            content2 += '<td onclick = "myFunction('+value.eventId+')">' + value.eventName + '</td>';
+            content2 +=   value.eventId+'<td onclick = "myFunction('+value.eventId+')"> </td>';
             content2 += '<tr>';
           })
           

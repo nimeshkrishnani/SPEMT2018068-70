@@ -39,11 +39,11 @@ app.post('/eventFetch', function (req, res) {
 
 app.post('/subEventFetch', function (req, res) {
    	
-	connection.query('SELECT * FROM `subEventInfo` WHERE `eventId`="'+req.body.id+'"', function (error, results, fields) {
+	connection.query('SELECT * FROM `subEventInfo` WHERE `eventId`="'+req.body.name+'"', function (error, results, fields) {
 	  if (error) throw error;
 	  if(results.length==1)
 	  {
-	  	connection.query('SELECT * FROM `generalEventInfo` WHERE `eventId`="'+req.body.id+'"', function (error2, results2, fields2) {
+	  	connection.query('SELECT * FROM `generalEventInfo` WHERE `eventName`="'+req.body.name+'"', function (error2, results2, fields2) {
 	  	if (error2) throw error2;
 	  	res.status(200).send({ msg: 'successfull',  data:results,name:results2[0]['eventName']});
 	});
