@@ -290,6 +290,32 @@ $("#parent").html(content);
 
 
     });
+$('#enter_events').click(function(e) {   
+      e.preventDefault();
+     // alert('Entered Worker');
+      $("#parent").html("");
+
+var content2='';
+content2 +='<form class="form-horizontal">';
+content2 +='<div class="box-body">';
+content2 +='<div class="form-group" style="margin-left:-10%">';
+content2 +='<label for="event_name" class="col-sm-2 control-label">Event Name</label>';
+
+content2 +='<div class="col-sm-2">';
+content2 +='<input type="text" class="form-control" id="eventName" placeholder="Default Event">';
+content2 +='</div>';
+content2 +='<div class="col-sm-2">';
+content2 +='<button type="submit" id = "submitWorkerId" class="btn btn-info pull-left">Search</button>';
+content2 +='</div>';
+content2 +='</div>';
+content2 +='</div>';
+content2 +='</form>';
+content2 +='<div id="workerData">';
+$("#parent").html(content2);
+
+
+
+    });
 
 $('#room').click(function(e) {   
       e.preventDefault();

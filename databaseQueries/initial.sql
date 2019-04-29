@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS subEventInfo;
 DROP TABLE IF EXISTS generalEventInfo;
 
 CREATE TABLE generalEventInfo (eventId 					INT(20) 		AUTO_INCREMENT
-							  ,eventName 				VARCHAR(40)
+							  ,eventName 				VARCHAR(40) UNIQUE
                               ,PRIMARY KEY (eventId)
                               );
 CREATE TABLE subEventInfo	  (eventId					INT(20)
@@ -32,8 +32,6 @@ CREATE TABLE subEventInfo	  (eventId					INT(20)
                               ,contactNum1 				VARCHAR(40)
                               ,contactName2 			VARCHAR(40)
                               ,contactNum2 				VARCHAR(40)
-                              ,subEventLong				VARCHAR(18)
-                              ,subEventLat				VARCHAR(18)
                               ,subEventLocation			VARCHAR(40)
                               -- ,PRIMARY KEY (eventId)
 							  ,FOREIGN KEY (eventId) 	REFERENCES generalEventInfo(eventId)
