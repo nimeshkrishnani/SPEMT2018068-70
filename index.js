@@ -63,7 +63,7 @@ app.post('/insertSubEvent', function (req, res) {
 	  if (error) throw error;
 	  if(results.length==1)
 	  {
-	  	connection.query('INSERT INTO `subEventInfo`(`subEventName`, `subEventInfo`, `contactName1`, `contactNum1`, `contactName2`, `contactNum2`,`subEventLocation`,`eventId`) VALUES ("'+req.body.eventName+'","'+req.body.subEventInfo+'","'+req.body.contactName1+'","'+req.body.contactNum1+'","'+req.body.contactName2+'","'+req.body.contactNum2+'","'+req.body.subEventLocation+'","'+results[0]['eventId']+'")"',, function (error2, results2, fields2) {
+	  	connection.query('INSERT INTO `subEventInfo`(`subEventName`, `subEventInfo`, `contactName1`, `contactNum1`, `contactName2`, `contactNum2`,`subEventLocation`,`eventId`) VALUES ("'+req.body.eventName+'","'+req.body.subEventInfo+'","'+req.body.contactName1+'","'+req.body.contactNum1+'","'+req.body.contactName2+'","'+req.body.contactNum2+'","'+req.body.subEventLocation+'","'+results[0]['eventId']+'")"', function (error2, results2, fields2) {
 	  	if (error2) throw error2;
 	  	res.status(200).send({ msg: 'successfull'});
 	});
