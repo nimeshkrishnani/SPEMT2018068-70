@@ -48,6 +48,10 @@ INSERT INTO generalEventInfo (eventName
 							 )
 VALUES 						 ("TAKE HOME"
 							 );
+INSERT INTO generalEventInfo (eventName
+							 )
+VALUES 						 ("SANGAM"
+							 );
 -- INSERT INTO contactInfo 	 (eventId
 -- 							 ,generalOrganizers
 -- 							 )
