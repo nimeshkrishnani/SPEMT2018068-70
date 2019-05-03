@@ -3,6 +3,6 @@ ENV MYSQL_DATABASE="event_information" \
     MYSQL_ROOT_PASSWORD="NIme&1212" \
     MYSQL_USER="root"
 COPY initial.sql /docker-entrypoint-initdb.d/
-COPY gen_log.cnf /etc/mysql/
+COPY gen_log.cnf /etc/mysql/my.cnf
 EXPOSE 3306
 
